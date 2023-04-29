@@ -1,5 +1,5 @@
 {
-  "name": "gateway",
+  "name": "notofication.management.services",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -27,12 +27,12 @@
     "prettier": "^2.8.8"
   },
   "dependencies": {
+    "amqplib": "^0.10.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "http-proxy-middleware": "^2.0.6",
-    "morgan": "^1.10.0",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.2",
-    "yamljs": "^0.3.0"
+    "socket.io": "^4.6.1"
   }
 }

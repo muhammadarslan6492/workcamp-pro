@@ -1,9 +1,18 @@
 import express from 'express';
 import { config } from 'dotenv';
 import morgan from 'morgan';
-
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+
 import urls from './urls';
+
+const swaggerDocument = YAML.load('./swagger.yaml');
+
+const options = {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'WorkCamp',
+};
 
 config();
 
@@ -11,6 +20,12 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(morgan('dev'));
+
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument, options),
+);
 
 const optionsUsers = {
   target: urls.USER_URL,

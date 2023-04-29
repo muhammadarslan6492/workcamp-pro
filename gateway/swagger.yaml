@@ -1,0 +1,12 @@
+openapi: 3.0.3
+info:
+  title: Work Camp Doc's
+  description: |-
+    This is a sample APIs doc for the work camp app
+servers:
+  - url: http://localhost:8000
+tags:
+  - name: User
+    description: All endpoints about the User
+paths:
+  /camp/users:
