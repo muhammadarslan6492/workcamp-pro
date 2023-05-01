@@ -1,5 +1,4 @@
 import Server from './config/server';
-import RabbitConnection from './config/rabbit-mq';
 import routes from './router';
 import './config/env';
 import db from './config/db';
@@ -10,7 +9,6 @@ const main = async () => {
   db();
   const server = new Server().router(routes);
   server.listen(process.env.PORT);
-  // RabbitConnection.getInstance();
 };
 
 // setTimeout(() => {

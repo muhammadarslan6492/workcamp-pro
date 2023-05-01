@@ -35,6 +35,6 @@ const rolesSchema = new mongoose.Schema({
 
 rolesSchema.plugin(mongoosePaginate);
 
-const Roles = mongoose.model('Roles', rolesSchema);
+const Roles = mongoose.model('Role', rolesSchema);
 
 export default Roles;
