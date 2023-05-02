@@ -33,12 +33,24 @@ const optionsUsers = {
   logger: console,
 };
 
+const optionsCamp = {
+  target: urls.CAMP_URL,
+  changeOrigin: true,
+  logger: console,
+};
+
 const userProxy = createProxyMiddleware(optionsUsers);
+const campProxy = createProxyMiddleware(optionsCamp);
 
 try {
   app.get('/', (req, res) => {
     res.status(200).json({ message: 'Api endpoint is open' });
   });
+
+  // camp-management-services************* Api endpoints****************
+
+  app.post('/camp-availability', campProxy);
+
   // user-management-services***** all api endpoints ******
   app.get('/test', userProxy);
   app.listen(PORT, () => {
