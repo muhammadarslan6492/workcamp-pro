@@ -13,8 +13,8 @@ export default {
   oneCamp: async (req, res) => {
     try {
       const { params } = req.query;
-      const where = { ...params };
-      const response = await Service.oneCamp(where);
+      console.log('dataa layeer', params);
+      const response = await Service.oneCamp(params);
       return res.json(response);
     } catch (err) {
       return res.status(500).json({ error: err.message });
