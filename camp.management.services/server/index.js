@@ -1,12 +1,12 @@
 import Server from './config/server';
 import RabbitConnection from './config/rabbit-mq';
-import routes from './router';
 import './config/env';
+import IndexRouter from './modules/router/index';
 
 const SLEEP_TIME = process.env.SLEEP_TIME || 30000;
 
 const main = async () => {
-  const server = new Server().router(routes);
+  const server = new Server(IndexRouter);
   server.listen(process.env.PORT);
   // RabbitConnection.getInstance();
 };

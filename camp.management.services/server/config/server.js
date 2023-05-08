@@ -8,7 +8,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 export default class ExpressServer {
-  constructor() {
+  constructor(router) {
     const root = path.normalize(`${__dirname}/../..`);
     const app = new Express();
     app.set('appPath', `${root}client`);
@@ -34,11 +34,9 @@ export default class ExpressServer {
     });
 
     this.app = app;
-  }
+    this.routes = router;
 
-  router(routes) {
-    this.routes = routes;
-    return this;
+    // this.routes = router;
   }
 
   listen(port = process.env.PORT || 3000) {
@@ -50,7 +48,7 @@ export default class ExpressServer {
       return msg;
     };
 
-    this.routes(this.app);
+    this.app.use('/api', this.routes);
 
     this.app.use((req, res) => {
       res.status(404).json({ message: `${req.url} path not found` });

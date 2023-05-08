@@ -5,10 +5,11 @@ export default {
     try {
       const { campName } = req.body;
       const response = await Service.checkCampName(campName);
+      console.log(response);
       if (!response.success) {
         return res
           .status(response.statusCode)
-          .json({ message: response.message });
+          .json({ message: response.error });
       }
       return res
         .status(response.statusCode)
@@ -25,11 +26,11 @@ export default {
       if (response.error) {
         return res
           .status(response.statusCode)
-          .json({ message: response.message });
+          .json({ message: response.error });
       }
       return res
         .status(response.statusCode)
-        .json({ message: response.message });
+        .json({ message: response.message, camp: response.camp });
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }

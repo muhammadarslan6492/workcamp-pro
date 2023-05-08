@@ -12,20 +12,6 @@ const schema = Joi.object({
   //   'string.empty': `Camp name '${Joi.object.campName}' is invalid`,
   //   'string.pattern.base': `Camp name '${Joi.object.campName}' is name`,
   // }),
-  orgName: Joi.string()
-    .trim()
-    .min(4)
-    .max(32)
-    .required()
-    .regex(new RegExp(REGEX.ALPHA_NUMERIC_SPECIAL_CHARACTER))
-    .messages({
-      'string.min':
-        'Invalid Organization name, Please enter minimum 4 characters',
-      'string.max':
-        'Invalid Organization name, Please enter maximum 22 characters',
-      'string.pattern.base':
-        'Invalid Organization name, Please use alphanumerics',
-    }),
   email: Joi.string()
     .pattern(new RegExp(REGEX.EMAIL))
     .max(320)

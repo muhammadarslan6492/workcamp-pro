@@ -11,4 +11,6 @@ router.post(
   Controller.campNameAvalability,
 );
 
+router.post('/create-camp', validate.CreateCampValidator, Controller.creatCamp);
+
 export default router;

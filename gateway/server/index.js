@@ -50,6 +50,7 @@ try {
   // camp-management-services************* Api endpoints****************
 
   app.post('/camp-availability', campProxy);
+  app.post('/create-camp', campProxy);
 
   // user-management-services***** all api endpoints ******
   app.get('/test', userProxy);

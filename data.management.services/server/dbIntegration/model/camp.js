@@ -10,9 +10,6 @@ const CampSchema = new mongoose.Schema(
     slug: {
       type: String,
     },
-    orgName: {
-      type: String,
-    },
     teamStrength: String,
 
     email: {
@@ -23,7 +20,7 @@ const CampSchema = new mongoose.Schema(
       type: String,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 CampSchema.plugin(mongoosePaginate);

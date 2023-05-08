@@ -36,10 +36,18 @@ class Repo {
   async getCamp(params) {
     try {
       const data = await this.get(`${BASE_URL}/api/camp/one-camp`, { params });
-      console.log('this is data', data);
       return data;
     } catch (err) {
       return err;
+    }
+  }
+
+  async createCamp(obj) {
+    try {
+      const data = await this.post(`${BASE_URL}/api/camp`, obj);
+      return { response: data };
+    } catch (err) {
+      return { error: err };
     }
   }
 }
