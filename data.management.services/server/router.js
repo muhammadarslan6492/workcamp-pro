@@ -1,3 +1,5 @@
+import Router from './dbIntegration/router/index';
+
 export default function routes(app) {
-  //   app.use('/api/user', UserRouter);
+  app.use('/api', Router);
 }

@@ -6,7 +6,59 @@ info:
 servers:
   - url: http://localhost:8000
 tags:
-  - name: User
-    description: All endpoints about the User
+  - name: Camp
+    description: All endpoints about the Camp
 paths:
-  /camp/users:
+  /camp-availability:
+    post:
+      tags:
+        - Camp
+      summary: check camp availability.
+      description: call this api to chack camp availability.
+      requestBody:
+        description: call this api to chack camp availability.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                campName:
+                  type: string
+                  example: sofit
+        required: true
+      responses:
+        '201': # status code
+          description: return with created camp object
+        '400': # status code
+          description: Invalid body data
+  /create-camp:
+    post:
+      tags:
+        - Camp
+      summary: Create camp.
+      description: call this api to create camp.
+      requestBody:
+        description: call this api to create camp.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                campName:
+                  type: string
+                  example: sofit
+                email:
+                  type: string
+                  example: test@gmail.com
+                teamStrength:
+                  type: string
+                  example: 50-100
+                websiteLink:
+                  type: string
+                  example: http://www.sofit.com
+        required: true
+      responses:
+        '201': # status code
+          description: return with created camp object
+        '400': # status code
+          description: Invalid body data

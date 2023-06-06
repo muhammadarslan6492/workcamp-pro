@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connect = () => {
   mongoose
-    .connect('mongodb://127.0.0.1:27017/new_work_camp')
+    .connect(process.env.TEST_BD)
     .then(() => {
       console.log('database is connected successfully');
     })

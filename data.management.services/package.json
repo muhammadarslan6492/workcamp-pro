@@ -1,5 +1,5 @@
 {
-  "name": "user.management.services",
+  "name": "data.management.services",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -37,6 +37,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.5",
+    "mongoose-paginate-v2": "^1.7.1",
     "morgan": "^1.10.0",
     "os": "^0.1.2"
   }
